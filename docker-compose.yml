@@ -1,0 +1,8 @@
+version: '3'
+services:
+  poetry:
+    build: .
+    user: estatuser
+    volumes:
+      - .:/workspaces
+    tty: true # retain container up

@@ -5,7 +5,6 @@ import requests
 from pydantic import Field, ValidationError, validate_call
 
 from estatapi import _appid, _endpoint, _enum
-from estatapi._output import ApiOutput
 
 YearsStr = Field(
     default=None,
@@ -43,7 +42,7 @@ def get_stats_list(
     limit: int | None = Field(default=None, ge=1),
     updatedDate: str | None = DateStr,
     lang: Literal["J", "E"] = Field(default="J"),
-) -> ApiOutput:
+) -> requests.Response:
     """
     統計表情報取得
     -------------
@@ -140,7 +139,7 @@ def get_stats_list(
 
     Returns
     -------
-    api_output : ApiOutput
+    api_response : requests.Response
     """
 
     params = {
@@ -172,7 +171,7 @@ def get_stats_list(
     # get response
     response = requests.get(url=endpoint, params=params)
 
-    return ApiOutput(response=response)
+    return response
 
 
 @validate_call
@@ -180,7 +179,7 @@ def get_meta_info(
     statsDataId: str,
     explanationGetFlg: Literal["Y", "N"] = "Y",
     lang: Literal["J", "E"] = Field(default="J"),
-) -> dict:
+) -> requests.Response:
     """
     メタ情報取得
     -------------
@@ -206,7 +205,7 @@ def get_meta_info(
 
     Returns
     -------
-    api_output : dict
+    api_response : requests.Response
     """
 
     params = {
@@ -228,7 +227,7 @@ def get_meta_info(
     # get response
     response = requests.get(url=endpoint, params=params)
 
-    return ApiOutput(response=response)
+    return response
 
 
 def _validate_dataSetId_statsDataId(dataSetId, statsDataId):
@@ -283,7 +282,7 @@ def get_stats_data(
     replaceSpChar: Literal[0, 1, 2, 3] = 0,
     lang: Literal["J", "E"] = Field(default="J"),
     **kwargs: Annotated[str, Field(...)],
-) -> dict:
+) -> requests.Response:
     """
     統計データ取得
     -------------
@@ -449,7 +448,7 @@ def get_stats_data(
 
     Returns
     -------
-    api_output : dict
+    api_response : requests.Response
     """
     # check if only one of dataSetId and statsDataId is specified
     _validate_dataSetId_statsDataId(dataSetId, statsDataId)
@@ -500,4 +499,4 @@ def get_stats_data(
     # get response
     response = requests.get(url=endpoint, params=params)
 
-    return ApiOutput(response=response)
+    return response

@@ -27,5 +27,17 @@
 	// Configure tool-specific properties.
 	// "customizations": {},
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "estatuser"
+	"remoteUser": "estatuser",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.black-formatter",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"ms-python.isort",
+				"ms-toolsai.jupyter",
+				"ms-python.python",
+				"ms-vscode.live-server"
+			]
+		}
+	}
 }

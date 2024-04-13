@@ -108,7 +108,7 @@ class TestGetStatsList:
     def test_root_key(self, register_uri, set_appid):
         """Root key must be 'GET_STATS_LIST'"""
         output = _functions.get_stats_list()
-        output = output.to_json()
+        output = output.json()
         assert list(output.keys()) == ["GET_STATS_LIST"]
 
     @pytest.mark.parametrize(
@@ -155,7 +155,7 @@ class TestGetMetaInfo:
 
         params = {"statsDataId": "0000000000"}
         output = _functions.get_meta_info(**params)
-        output = output.to_json()
+        output = output.json()
         assert list(output.keys()) == ["GET_META_INFO"]
 
     @pytest.mark.parametrize(
@@ -252,7 +252,7 @@ class TestGetStatsData:
 
         params = {"statsDataId": "0000000000"}
         output = _functions.get_stats_data(**params)
-        output = output.to_json()
+        output = output.json()
         assert list(output.keys()) == ["GET_STATS_DATA"]
 
     @pytest.mark.parametrize(

@@ -1,7 +1,8 @@
 [tool.poetry]
 name = "estatapi"
-version = "0.0.0"
-description = ""
+version = "0.1.0"
+description = "e-Stat API from Python"
+license = "MIT"
 authors = ["savioursho <savioursho@gmail.com>"]
 readme = "README.md"
 
@@ -9,7 +10,6 @@ readme = "README.md"
 python = ">=3.9,<3.13"
 pydantic = "^2.6.4"
 pandas = "^2.2.2"
-lxml = "^5.2.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"

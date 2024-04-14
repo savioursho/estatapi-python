@@ -1,7 +1,7 @@
-from enum import StrEnum
+from enum import Enum
 
 
-class ApiType(StrEnum):
+class ApiType(str, Enum):
     getStatsList = "getStatsList"
     getMetaInfo = "getMetaInfo"
     getStatsData = "getStatsData"
@@ -11,7 +11,7 @@ class ApiType(StrEnum):
     getStatsDatas = "getStatsDatas"
 
 
-class ResponseDataType(StrEnum):
+class ResponseDataType(str, Enum):
     XML = "xml"
     JSON = "json"
     JSONP = "jsonp"

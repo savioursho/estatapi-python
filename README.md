@@ -18,7 +18,7 @@ estatapi-pythonは [e\-StatのAPI機能](https://www.e-stat.go.jp/api/api-info)�
 ## インストール方法
 
 ```shell
-pip install ...
+pip install git+https://github.com/savioursho/estatapi-python.git@main
 ```
 
 ## アプリケーションIDの取得
